@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get A Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+            <div class="section">
+
+                <h2>Stock Quote</h2>
+                <table style="width:100%;align:center">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Company Name</th>
+                            <th>Current Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ symbol }}</td>
+                            <td>{{ company }}</td>
+                            <td>{{ price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </form>
+{% endblock %}

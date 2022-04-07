@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="post">
+            <div class="section">
+
+                <h2>Your Portfolio</h2>
+                <table style="width:40%;text-align:center">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Shares Held</th>
+                            <th>Stock Price</th>
+                            <th> Market Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                            <tr>
+                                <td>{{ row['symbol'] }}</td>
+                                <td>{{ row['qty'] }}</td>
+                                <td>{{ row['currentStockPrice'] | usd }}</td>
+                                <td>{{ row['mktVal'] | usd }}</td>
+                            </tr>
+                        {% endfor %}
+                            <tr>
+                                <td>cash money</td>
+                                <td></td>
+                                <td></td>
+                                <td>{{ funds | usd}}</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+    </form>
+{% endblock %}
